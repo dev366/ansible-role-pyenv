@@ -1,0 +1,14 @@
+---
+- name: Pyenv - Install dependencies
+  yum: name="{{ item }}" state=present
+  with_items:
+    - git
+    - make
+    - gcc
+    - gcc-c++
+    - patch
+    - openssl-devel
+    - zlib-devel
+    - bzip2-devel
+    - readline-devel
+    - sqlite-devel

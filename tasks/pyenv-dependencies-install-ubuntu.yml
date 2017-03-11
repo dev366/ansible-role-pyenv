@@ -1,0 +1,13 @@
+---
+- name: Pyenv - Install dependencies
+  apt: name="{{ item }}" state=present
+  with_items:
+    - git
+    - make
+#    - python-pip
+    - build-essential
+    - libssl-dev
+    - zlib1g-dev
+    - libbz2-dev
+    - libreadline-dev
+    - libsqlite3-dev

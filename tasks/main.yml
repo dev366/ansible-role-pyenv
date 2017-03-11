@@ -1,0 +1,8 @@
+---
+- include: pyenv-dependencies-install-{{ ansible_distribution | lower }}.yml
+
+- name: Pyenv - clone from github
+  git: repo=git://github.com/yyuu/pyenv.git dest=/root/.pyenv
+
+- name: Pyenv - clone pyenv-virtualenv plugin from github
+  git: repo=https://github.com/yyuu/pyenv-virtualenv.git dest=/root/.pyenv/plugins/pyenv-virtualenv
