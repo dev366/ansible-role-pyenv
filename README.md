@@ -11,7 +11,12 @@ Role requires fact gathering enabled in the main playbook (`gather_facts: yes`).
 
 Role Variables
 --------------
-None.
+
+Required variables:
+- pyenv_user, system user to create pyenv for
+
+Optional variables:
+- pyenv_home, path to pyenv home (default /home/{{ pyenv_user }}/.pyenv)
 
 Dependencies
 ------------
@@ -23,6 +28,8 @@ Example Playbook
     - hosts: servers
       roles:
         - role: ansible-role-pyenv
+          pyenv_user: backend_service
+          pyenv_home: /home/backend_service/.pyenv
 
 License
 -------

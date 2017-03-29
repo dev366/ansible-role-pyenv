@@ -2,7 +2,11 @@
 - include: pyenv-dependencies-install-{{ ansible_distribution | lower }}.yml
 
 - name: Pyenv - clone from github
-  git: repo=git://github.com/yyuu/pyenv.git dest=/root/.pyenv
+  become: yes
+  become_user: "{{ pyenv_user }}"
+  git: repo=git://github.com/yyuu/pyenv.git dest="{{ pyenv_home }}"
 
 - name: Pyenv - clone pyenv-virtualenv plugin from github
-  git: repo=https://github.com/yyuu/pyenv-virtualenv.git dest=/root/.pyenv/plugins/pyenv-virtualenv
+  become: yes
+  become_user: "{{ pyenv_user }}"
+  git: repo=https://github.com/yyuu/pyenv-virtualenv.git dest="{{ pyenv_home }}/plugins/pyenv-virtualenv"
